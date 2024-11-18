@@ -5,9 +5,9 @@ Segmentación de clientes
 ITBANK tiene distintos tipos de clientes y distintos tipos de cuentas que le puede dar a cada uno. A continuación se detallan las características de cada uno de ellos
 
 Tipos de clientes:                                    Tipos de cuentas:
-·Classic                                                       ·Caja de ahorro en pesos
- ·Gold                                                            ·Caja de ahorro en dólares
-· Black                                                          ·Cuenta Corriente  
+·Classic                                              ·Caja de ahorro en pesos
+ ·Gold                                                ·Caja de ahorro en dólares
+· Black                                               ·Cuenta Corriente  
 
 Adicionalmente los clientes pueden tener distintos tipos de tarjetas de crédito y operaciones permitidas según su perfil asociado.
 
