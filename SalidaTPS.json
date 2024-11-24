@@ -54,5 +54,27 @@
             "totalChequerasActualmente" : 2
         }
     ]
+},
+{
+    "numero": 100002,
+    "nombre": "Pablito",
+    "apellido": "Lescano",
+    "DNI": "98765432",
+    "tipo": "CLASSIC",
+    "transacciones": [
+        {
+            "estado": "ACEPTADA",
+            "tipo":
+            "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "cuentaNumero": 190,
+            "cupoDiarioRestante": 9000,
+            "monto": 1000,
+            "fecha": "10/10/2024 16: 00: 55",
+            "numero": 1,
+            "saldoEnCuenta": 100000,
+            "totalTarjetasDeCreditoActualmente" : 5,
+            "totalChequerasActualmente" : 2
+        }
+    ]
 }
 ]
