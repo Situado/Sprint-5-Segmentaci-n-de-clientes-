@@ -32,5 +32,27 @@
             "totalChequerasActualmente" : 2
         }
     ]
+},
+{
+    "numero": 100002,
+    "nombre": "Agustin",
+    "apellido": "Cacase",
+    "DNI": "12345678",
+    "tipo": "GOLD",
+    "transacciones": [
+        {
+            "estado": "ACEPTADA",
+            "tipo":
+            "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "cuentaNumero": 190,
+            "cupoDiarioRestante": 9000,
+            "monto": 1000,
+            "fecha": "10/10/2024 16: 00: 55",
+            "numero": 1,
+            "saldoEnCuenta": 100000,
+            "totalTarjetasDeCreditoActualmente" : 5,
+            "totalChequerasActualmente" : 2
+        }
+    ]
 }
 ]
