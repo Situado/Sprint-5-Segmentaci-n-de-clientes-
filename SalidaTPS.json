@@ -8,8 +8,7 @@
     "transacciones": [
         {
             "estado": "ACEPTADA",
-            "tipo":
-            "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
             "cuentaNumero": 190,
             "cupoDiarioRestante": 9000,
             "monto": 1000,
@@ -42,8 +41,7 @@
     "transacciones": [
         {
             "estado": "ACEPTADA",
-            "tipo":
-            "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
             "cuentaNumero": 190,
             "cupoDiarioRestante": 9000,
             "monto": 1000,
@@ -64,8 +62,7 @@
     "transacciones": [
         {
             "estado": "ACEPTADA",
-            "tipo":
-            "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
             "cuentaNumero": 190,
             "cupoDiarioRestante": 9000,
             "monto": 1000,
