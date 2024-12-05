@@ -52,8 +52,11 @@ class Transaccion:
         self.totalChequerasActualmente = totalChequerasActualmente
         self.Motivo_Rechazo = Motivo_Rechazo
 
+
 def Lectura_TPS_json(data, input_json_path):
     
+    clientes = []  # Lista de clientes
+
     for client in data:     # Itera y crea los clientes del JSON  
 
         tipo = client.get('tipo')
@@ -102,101 +105,11 @@ def Lectura_TPS_json(data, input_json_path):
 
             cliente_obj.agregar_transac(transaccion_obj)
 
-        # PRINTS QUE FUNCIONAN, SON PARA CONTROLAR QUE SE HAYA LEIDO BIEN EL JSON
-          
-        # print(f"Cliente {cliente_obj.numero}: {cliente_obj.nombre} {cliente_obj.apellido}")
-        # print(f"DNI: {cliente_obj.DNI}")
-        # print(f"Tipo: {cliente_obj.tipo.__class__.__name__}")
-        # for transaccion in cliente_obj.transacciones:
-        #     print(f"Transacción {transaccion.numero}:")
-        #     print(f"  Estado: {transaccion.estado}")
-        #     print(f"  Tipo: {transaccion.tipo}")
-        #     print(f"  Cuenta Número: {transaccion.cuentaNumero}")
-        #     print(f"  Cupo Diario Restante: {transaccion.cupoDiarioRestante}")
-        #     print(f"  Monto: {transaccion.monto}")
-        #     print(f"  Fecha: {transaccion.fecha}")
-        #     print(f"  Saldo en Cuenta: {transaccion.saldoEnCuenta}")
-        #     print(f"  Total Tarjetas de Crédito Actualmente: {transaccion.totalTarjetasDeCreditoActualmente}")
-        #     print(f"  Total Chequeras Actualmente: {transaccion.totalChequerasActualmente}")
-        # print("-" * 40)
+        clientes.append(cliente_obj)  # Añade el cliente a la lista
 
-# GENERACIÓN DE HTML INCOMPLETA, FALTA ACOMODAR EL FORMATO DE LAS COLUMNAS
+    return clientes  # Devuelve la lista de clientes
 
-# def generar_html(data, output_html_path): 
-#     html_content = """
-#     <!DOCTYPE html>
-#     <html lang="es">
-#     <head>
-#         <meta charset="UTF-8">
-#         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-#         <title>Reporte de transacción</title>
-#         <style>
-#             table {
-#                 width: 100%;
-#                 border-collapse: collapse;
-#             }
-#             th, td {
-#                 border: 1px solid #ddd;
-#                 padding: 8px;
-#                 text-align: left;
-#             }
-#             th {
-#                 background-color: #f4f4f4;
-#             }
-#             .aceptada {
-#                 background-color: #006341;
-#                 color: chiwte;
-#             }
-#             .rechazada{
-#                 background-color: #c8102e;
-#                 color:white;
-#             }
-#         </style> 
-#     </head>
-#     <body>
-#         <h1>Registro de Clientes</h1>
-#         <table border="1">
-#             <thead>
-#                 <tr>
-#                     <th>Cliente</th>
-#                     <th>Nombre</th>
-#                     <th>Apellido</th>
-#                     <th>DNI</th>
-#                     <th>Dirección</th>
-#                     <th>Transacción</th>
-#                     <th>Monto</th>
-#                     <th>Estado</th>
-#                     <th>Fecha</th>
-#                     <th>Razón</th>
-#                     <th>Tipo</th>
-#                 </tr>
-#             </thead>
-#             <tbody>
-#     """
-    
-#     for client in data:
-#         html_content += f"""
-#             <tr>
-#                 <td>{client.get('numero')}</td>
-#                 <td>{client.get('nombre')}</td>
-#                 <td>{client.get('apellido')}</td>
-#                 <td>{client.get('DNI')}</td>
-#                 <td>Ingresar direccion</td>
-#                 <td>{client.get('tipo')}</td>
-#                 <td>{client.get('transacciones')}</td>
-#             </tr>
-#         """
-    
-#     html_content += """
-#             </tbody>
-#         </table>
-#     </body>
-#     </html>
-#     """
-    
-#     with open(output_html_path, 'w', encoding='utf-8') as file:
-#         file.write(html_content)
-
+        
 
 def obtener_motivo_rechazo(tipo_cliente, tipo, cupoDiarioRestante, monto, saldoEnCuenta, total_TCredito_Act, total_Cheq_Act):
     
@@ -228,6 +141,158 @@ def obtener_motivo_rechazo(tipo_cliente, tipo, cupoDiarioRestante, monto, saldoE
         case _:
             return 'No se reconoce el tipo de operación'
 
+
+
+def generar_html(data, output_html_path): 
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte de transacción</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+            .aceptada {
+                background-color: #006341;
+                color: chiwte;
+            }
+            .rechazada{
+                background-color: #c8102e;
+                color:white;
+            }
+        </style> 
+    </head>
+    <body>
+        <h1>Registro de Clientes</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Dirección</th>
+                    <th>Transacción</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Monto</th>
+                    <th>Razón</th>
+                </tr>
+            </thead>
+            <tbody>
+    """
+    
+    for client in data:
+        for transaccion in client.transacciones:
+            html_content += f"""
+            <tr>
+            <td>{client.numero}</td>
+            <td>{client.nombre}</td>
+            <td>{client.apellido}</td>
+            <td>{client.DNI}</td>
+            <td>Calle {data.index(client) + 1}</td>
+            <td>{transaccion.numero}</td>
+            <td class="{transaccion.estado.lower()}">{transaccion.estado}</td>
+            <td>{transaccion.fecha}</td>
+            <td>{transaccion.tipo}</td>
+            <td>{transaccion.monto}</td>
+            <td>{transaccion.Motivo_Rechazo if transaccion.Motivo_Rechazo else ''}</td>
+            </tr>
+            """
+    
+    html_content += """
+            </tbody>
+        </table>
+    </body>
+    </html>
+    """
+    
+    with open(output_html_path, 'w', encoding='utf-8') as file:
+        file.write(html_content)
+
+
+
+def validar_json(data):
+        required_client_fields = {'numero', 'nombre', 'apellido', 'DNI', 'tipo', 'transacciones'}
+        required_transac_fields = {'estado', 'tipo', 'cuentaNumero', 'cupoDiarioRestante', 'monto', 'fecha', 'numero', 'saldoEnCuenta', 'totalTarjetasDeCreditoActualmente', 'totalChequerasActualmente'}
+
+        for client in data:
+
+            if not required_client_fields.issubset(client.keys()):
+                print(f"Error: Faltan campos de cliente requeridos.")
+                return False
+
+            tipo = client.get('tipo')
+    
+            if tipo == 'CLASSIC':
+                tipo_cliente = T_Classic()
+            elif tipo == 'GOLD':
+                tipo_cliente = T_Gold()
+            elif tipo == 'BLACK':
+                tipo_cliente = T_Black()
+            else:
+                print(f"Error: Tipo de cliente desconocido.")
+                return False
+            
+            
+            try:
+                client_numero = int(client['numero'])
+                client_DNI = int(client['DNI'])
+            except ValueError:
+                print(f"Error: El número de cliente o DNI no son valores enteros.")
+                return False
+
+            if client_numero <= 0 or client_DNI <= 0:
+                print(f"Error: El número de cliente o DNI no pueden ser menores o iguales a 0.")
+                return False
+            
+
+            for transac in client.get('transacciones', []):
+                if not required_transac_fields.issubset(transac.keys()):
+                    print(f"Error: Faltan campos de transaccion requeridos.")
+                    return False
+                
+                if transac['estado'] not in {'ACEPTADA', 'RECHAZADA'}:
+                    print(f"Error: Estado de transacción desconocido.")
+                    return False
+                
+                if transac['tipo'] not in {'RETIRO_EFECTIVO_CAJERO_AUTOMATICO', 'ALTA_TARJETA_CREDITO', 'ALTA_CHEQUERA', 'COMPRAR_DOLAR', 'TRANSFERENCIA_ENVIADA', 'TRANSFERENCIA_RECIBIDA'}:
+                    print(f"Error: Tipo de transacción desconocido.")
+                    return False
+                
+                if transac['cuentaNumero'] < 0 or transac['cupoDiarioRestante'] < 0 or transac['monto'] < 0 or transac['numero'] < 0 or transac['totalTarjetasDeCreditoActualmente'] < 0 or transac['totalChequerasActualmente'] < 0:
+                    print(f"Error: Hay campos de la transaccion que son menores a 0.")
+                    return False
+                
+                if (transac['saldoEnCuenta'] + tipo_cliente.Descubierto) < 0:
+                    print(f"Error: El saldo en cuenta más el descubierto no puede ser menor que 0.")
+                    return False
+                
+                if transac['totalTarjetasDeCreditoActualmente'] > tipo_cliente.T_Cred:  
+                    print(f"Error: El total de tarjetas de crédito actualmente no puede ser mayor al permitido.")
+                    return False
+                
+                if transac['totalChequerasActualmente'] > tipo_cliente.Cheq:
+                    print(f"Error: El total de chequeras actualmente no puede ser mayor al permitido.")
+                    return False
+
+        return True
+
+
+
 if __name__ == "__main__":
 
     input_json_path = 'SalidaTPS.json'
@@ -244,7 +309,14 @@ if __name__ == "__main__":
         print(f"Error: No se pudo decodificar el archivo JSON.")
         sys.exit()
 
-    Lectura_TPS_json(data, input_json_path)
-    # generar_html(data, output_html_path)
+    validacion = validar_json(data)
+    if not validacion:
+        print(f"No se pudo validar el archivo JSON. Cerrando el programa.")
+        sys.exit()
+    else:
+        print(f"Archivo JSON validado correctamente")
+
+    lista_clientes = Lectura_TPS_json(data, input_json_path)
+    generar_html(lista_clientes, output_html_path)
     
-    print(f"Archivo HTML generado")
+    print(f"Archivo HTML generado correctamente")

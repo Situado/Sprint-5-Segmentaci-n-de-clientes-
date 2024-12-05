@@ -33,7 +33,7 @@
     ]
 },
 {
-    "numero": 100002,
+    "numero": 432427,
     "nombre": "Agustin",
     "apellido": "Cacase",
     "DNI": "12345678",
@@ -41,36 +41,36 @@
     "transacciones": [
         {
             "estado": "ACEPTADA",
-            "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
-            "cuentaNumero": 190,
-            "cupoDiarioRestante": 9000,
+            "tipo": "ALTA_CHEQUERA",
+            "cuentaNumero": 1083,
+            "cupoDiarioRestante": 10000,
             "monto": 1000,
             "fecha": "10/10/2024 16: 00: 55",
             "numero": 1,
-            "saldoEnCuenta": 100000,
-            "totalTarjetasDeCreditoActualmente" : 5,
-            "totalChequerasActualmente" : 2
+            "saldoEnCuenta": -10000,
+            "totalTarjetasDeCreditoActualmente" : 0,
+            "totalChequerasActualmente" : 0
         }
     ]
 },
 {
-    "numero": 100002,
+    "numero": 345,
     "nombre": "Pablito",
-    "apellido": "Lescano",
+    "apellido": "Sitos",
     "DNI": "98765432",
     "tipo": "CLASSIC",
     "transacciones": [
         {
-            "estado": "ACEPTADA",
-            "tipo": "RETIRO_EFECTIVO_CAJERO_AUTOMATICO",
+            "estado": "RECHAZADA",
+            "tipo": "COMPRAR_DOLAR",
             "cuentaNumero": 190,
             "cupoDiarioRestante": 9000,
             "monto": 1000,
             "fecha": "10/10/2024 16: 00: 55",
             "numero": 1,
             "saldoEnCuenta": 100000,
-            "totalTarjetasDeCreditoActualmente" : 5,
-            "totalChequerasActualmente" : 2
+            "totalTarjetasDeCreditoActualmente" : 0,
+            "totalChequerasActualmente" : 0
         }
     ]
 }

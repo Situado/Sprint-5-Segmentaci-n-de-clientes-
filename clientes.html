@@ -4,47 +4,107 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Clientes</title>
+        <title>Reporte de transacción</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+            }
+            .aceptada {
+                background-color: #006341;
+                color: chiwte;
+            }
+            .rechazada{
+                background-color: #c8102e;
+                color:white;
+            }
+        </style> 
     </head>
     <body>
-        <h1>Lista de Clientes</h1>
+        <h1>Registro de Clientes</h1>
         <table border="1">
-            <tr>
-                <th>Número</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-                <th>Tipo</th>
-                <th>Transacciones</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Dirección</th>
+                    <th>Transacción</th>
+                    <th>Estado</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Monto</th>
+                    <th>Razón</th>
+                </tr>
+            </thead>
+            <tbody>
     
             <tr>
-                <td>100001</td>
-                <td>Nicolas</td>
-                <td>Gastón</td>
-                <td>29494777</td>
-                <td>BLACK</td>
-                <td>[{'estado': 'ACEPTADA', 'tipo': 'RETIRO_EFECTIVO_CAJERO_AUTOMATICO', 'cuentaNumero': 190, 'cupoDiarioRestante': 9000, 'monto': 1000, 'fecha': '10/10/2022 16: 00: 55', 'numero': 1, 'saldoEnCuenta': 100000, 'totalTarjetasDeCreditoActualmente': 5, 'totalChequerasActualmente': 2}, {'estado': 'RECHAZADA', 'tipo': 'ALTA_CHEQUERA', 'cuentaNumero': 190, 'cupoDiarioRestante': 3000, 'monto': 9000, 'fecha': '10/10/2022 16:00:55', 'numero': 1, 'saldoEnCuenta': 100000, 'totalTarjetasDeCreditoActualmente': 5, 'totalChequerasActualmente': 2}]</td>
+            <td>100001</td>
+            <td>Nicolas</td>
+            <td>Gastón</td>
+            <td>29494777</td>
+            <td>Calle 1</td>
+            <td>1</td>
+            <td class="aceptada">ACEPTADA</td>
+            <td>10/10/2022 16: 00: 55</td>
+            <td>RETIRO_EFECTIVO_CAJERO_AUTOMATICO</td>
+            <td>1000</td>
+            <td></td>
             </tr>
-        
+            
             <tr>
-                <td>100002</td>
-                <td>Agustin</td>
-                <td>Cacase</td>
-                <td>12345678</td>
-                <td>GOLD</td>
-                <td>[{'estado': 'ACEPTADA', 'tipo': 'RETIRO_EFECTIVO_CAJERO_AUTOMATICO', 'cuentaNumero': 190, 'cupoDiarioRestante': 9000, 'monto': 1000, 'fecha': '10/10/2024 16: 00: 55', 'numero': 1, 'saldoEnCuenta': 100000, 'totalTarjetasDeCreditoActualmente': 5, 'totalChequerasActualmente': 2}]</td>
+            <td>100001</td>
+            <td>Nicolas</td>
+            <td>Gastón</td>
+            <td>29494777</td>
+            <td>Calle 1</td>
+            <td>1</td>
+            <td class="rechazada">RECHAZADA</td>
+            <td>10/10/2022 16:00:55</td>
+            <td>ALTA_CHEQUERA</td>
+            <td>9000</td>
+            <td>El cliente ya posee el máximo de chequeras permitidas</td>
             </tr>
-        
+            
             <tr>
-                <td>100002</td>
-                <td>Pablito</td>
-                <td>Lescano</td>
-                <td>98765432</td>
-                <td>CLASSIC</td>
-                <td>[{'estado': 'ACEPTADA', 'tipo': 'RETIRO_EFECTIVO_CAJERO_AUTOMATICO', 'cuentaNumero': 190, 'cupoDiarioRestante': 9000, 'monto': 1000, 'fecha': '10/10/2024 16: 00: 55', 'numero': 1, 'saldoEnCuenta': 100000, 'totalTarjetasDeCreditoActualmente': 5, 'totalChequerasActualmente': 2}]</td>
+            <td>432427</td>
+            <td>Agustin</td>
+            <td>Cacase</td>
+            <td>12345678</td>
+            <td>Calle 2</td>
+            <td>1</td>
+            <td class="aceptada">ACEPTADA</td>
+            <td>10/10/2024 16: 00: 55</td>
+            <td>ALTA_CHEQUERA</td>
+            <td>1000</td>
+            <td></td>
             </tr>
-        
+            
+            <tr>
+            <td>345</td>
+            <td>Pablito</td>
+            <td>Sitos</td>
+            <td>98765432</td>
+            <td>Calle 3</td>
+            <td>1</td>
+            <td class="rechazada">RECHAZADA</td>
+            <td>10/10/2024 16: 00: 55</td>
+            <td>COMPRAR_DOLAR</td>
+            <td>1000</td>
+            <td>El cliente no posee cuenta en dólares</td>
+            </tr>
+            
+            </tbody>
         </table>
     </body>
     </html>
